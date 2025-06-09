@@ -1,0 +1,19 @@
+services:
+  - type: worker
+    name: okx-futures-alert-bot
+    env: python
+    repo: https://github.com/zZThunderZz/okx-futures-bot
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: python okx_futures_alert_bot.py
+    envVars:
+      - key: TELEGRAM_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+      - key: SYMBOLS
+        sync: false
+      - key: OI_THRESHOLD
+        sync: false
+      - key: INTERVAL_SECONDS
+        sync: false
